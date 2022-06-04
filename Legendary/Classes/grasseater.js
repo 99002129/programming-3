@@ -1,56 +1,20 @@
-class GrassEater {
+class GrassEater extends LivingCreater{
     constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.energy = 8
-        this.directions = []
+        super.energy = 8                            //dif
+        super.directions = []                       //dif
     }
-    getNewCoordinates() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y - 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y - 1],
-            [this.x + 1, this.y],
-            [this.x + 1, this.y + 1]
-        ]
-    }
-    
-    chooseCell(char1) {
-        this.getNewCoordinates()
-        let found = []
-        for (let i in this.directions) {
-            let x = this.directions[i][0]
-            let y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length && matrix[x][y] == char1) {
-                found.push(this.directions[i])
-            }
-        }
-        return found
-    }
-    move() {
-        let emptyCells = this.chooseCell(0)
-        let emptyCell = rand(emptyCells)
-        if (emptyCell && this.energy > 0) {
-            this.energy--
-            let newX = emptyCell[0]
-            let newY = emptyCell[1]
-            matrix[newX][newY] = 2
-            matrix[this.x][this.y] = 0
-            this.x = newX
-            this.y = newY
-        } else if (this.energy <= 0) {
-            this.die()
-        }
-    }
+   
+    rand
+    chooseCell(char) {
+        super.getNewCoordinates()                    //dif
+    }  
+   
     eat() {
         this.mul()
         let grassCells = this.chooseCell(1)
-        let grassCell = rand(grassCells)
+        let grassCell = this.rand(grassCells)
         let posionedGrassCells = this.chooseCell(4)
-        let posionedGrassCell = rand(posionedGrassCells)
+        let posionedGrassCell = this.rand(posionedGrassCells)
         if (grassCell && this.energy > 0) {
             this.energy++
             let newX = grassCell[0]
@@ -84,7 +48,7 @@ class GrassEater {
 
     mul() {
         let emptyCells = this.chooseCell(0)
-        let emptyCell = rand(emptyCells)
+        let emptyCell = this.rand(emptyCells)
         if (this.energy >= 12 && emptyCell) {
             let newX = emptyCell[0]
             let newY = emptyCell[1]

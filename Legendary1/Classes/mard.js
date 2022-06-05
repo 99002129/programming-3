@@ -1,6 +1,7 @@
 class Mard extends LivingCreater{
 
     move(x, y) {            // have and diff
+        super.move()
         console.log(matrix[0].length, x);
         if ((x >= 0 && x <= matrix[0].length) && (y >= 0 && y <= matrix.length)) {
             console.log(this.x, this.y);

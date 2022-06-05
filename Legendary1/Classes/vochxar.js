@@ -6,6 +6,7 @@ class Vochxar extends LivingCreater{
     }
 
     getNewCoordinates() {
+        super.getNewCoordinates()
         this.directions = [
             [this.x, this.y],
             [this.x + 1, this.y],
@@ -35,6 +36,7 @@ class Vochxar extends LivingCreater{
     }
 
     chooseCell(char1, char2, char3, char4, char5) {
+        super.chooseCell()
         this.getNewCoordinates()
         let found = []
         for (let i in this.directions) {
@@ -48,32 +50,5 @@ class Vochxar extends LivingCreater{
         }
         return found
     }
-    boom() {
-        let cells = this.chooseCell(1, 2, 3, 4, 5)
-        let cell = this.rand(cells)
-        if (cell) {
-            let newX = cell[0]
-            let newY = cell[1]
-            matrix[newX][newY] = 0
-            matrix[this.x][this.y] = 0
-            for (var i = 0; i < vochxarArr.length; i++) {
-                if (newX == grassArr[i].x && newY == grassArr[i].y) {
-                    grassArr.splice(i, 1)
-                }
-                if (newX == grassEaterArr[i].x && newY == grassEaterArr[i].y) {
-                    grassEaterArr.splice(i, 1)
-                }
-
-                if (newX == predatorArr[i].x && newY == predatorArr[i].y) {
-                    predatorArr.splice(i, 1)
-                }
-                if (newX == PosionedGrassArr[i].x && newY == PosionedGrassArr[i].y) {
-                    PosionedGrassArr.splice(i, 1)
-                }
-
-            }
-            this.x = newX
-            this.y = newY
-        }
-    }
+ 
 }

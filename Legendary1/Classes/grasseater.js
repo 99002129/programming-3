@@ -4,7 +4,7 @@ class GrassEater extends LivingCreater{
         this.energy = 8                            //dif
         this.directions = []                       //dif
     }
-   
+
     
     chooseCell(char) {
         super.getNewCoordinates()                    //dif
@@ -59,12 +59,5 @@ class GrassEater extends LivingCreater{
             this.energy -= 8
         }
     }
-    die() {
-        matrix[this.x][this.y] = 0
-        for (let i = 0; i < grassEaterArr.length; i++) {
-            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                grassEaterArr.splice(i, 1)
-            }
-        }
-    }
+    
 }

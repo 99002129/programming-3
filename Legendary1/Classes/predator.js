@@ -7,7 +7,8 @@ class Predator extends LivingCreater{
 
 
     chooseCell(char1, char2) {
-        super.getNewCoordinates()
+        super.chooseCell()
+        this.getNewCoordinates()
         let found = []
         for (let i in this.directions) {
             let x = this.directions[i][0]
@@ -45,23 +46,7 @@ class Predator extends LivingCreater{
         }
     }
 
-    move() {
-        let emptyCells = this.chooseCell(0, 1)
-        let emptyCell = this.rand(emptyCells)
-        if (emptyCell && this.energy > 0) {
-            this.energy--
-            let newX = emptyCell[0]
-            let newY = emptyCell[1]
-            matrix[newX][newY] = 2
-            matrix[this.x][this.y] = 0
-            this.x = newX
-            this.y = newY
-            return this.energy
-        } if (this.energy <= 0) {
-            this.die()
-
-        }
-    }
+   
 
     mul() {
         if (this.energy >= 20) {
@@ -78,7 +63,8 @@ class Predator extends LivingCreater{
         }
     }
 
-    die() {
+    die() {             //dif
+        super.die()
         if (this.energy <= 0) {
             matrix[this.x][this.y] = 0
             for (let i = 0; i < predatorArr.length; i++) {

@@ -108,7 +108,7 @@ class LivingCreater {
         return found
     }
     
-    move() {                        //grasseater
+    move() {                        //grasseater        predator
         let emptyCells = this.chooseCell(0)
         let emptyCell = this.rand(emptyCells)
         if (emptyCell && this.energy > 0) {
@@ -136,10 +136,48 @@ class LivingCreater {
             [this.x + 1, this.y + 1]
         ]
     }
-
-    
+ 
     rand(arr) {                     //function
         return arr[Math.floor(Math.random() * arr.length)]
+    }
+
+    die() {             //          grasseater
+        matrix[this.x][this.y] = 0
+        for (let i = 0; i < grassEaterArr.length; i++) {
+            if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
+                grassEaterArr.splice(i, 1)
+                break
+            }
+        }
+    }
+
+    boom() {                //vochxar
+        let cells = this.chooseCell(1, 2, 3, 4, 5)
+        let cell = this.rand(cells)
+        if (cell) {
+            let newX = cell[0]
+            let newY = cell[1]
+            matrix[newX][newY] = 0
+            matrix[this.x][this.y] = 0
+            for (var i = 0; i < vochxarArr.length; i++) {
+                if (newX == grassArr[i].x && newY == grassArr[i].y) {
+                    grassArr.splice(i, 1)
+                }
+                if (newX == grassEaterArr[i].x && newY == grassEaterArr[i].y) {
+                    grassEaterArr.splice(i, 1)
+                }
+
+                if (newX == predatorArr[i].x && newY == predatorArr[i].y) {
+                    predatorArr.splice(i, 1)
+                }
+                if (newX == PosionedGrassArr[i].x && newY == PosionedGrassArr[i].y) {
+                    PosionedGrassArr.splice(i, 1)
+                }
+
+            }
+            this.x = newX
+            this.y = newY
+        }
     }
 }
 

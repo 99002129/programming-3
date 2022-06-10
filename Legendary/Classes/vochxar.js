@@ -1,9 +1,9 @@
-class Vochxar extends LivingCreater{
+class Vochxar {
     constructor(x, y) {
         this.x = x
         this.y = y
         this.bomb = 8
-        super.directions = []
+        this.directions = []
     }
 
     getNewCoordinates() {
@@ -51,7 +51,7 @@ class Vochxar extends LivingCreater{
     }
     boom() {
         let cells = this.chooseCell(1, 2, 3, 4, 5)
-        let cell = this.rand(cells)
+        let cell = rand(cells)
         if (cell) {
             let newX = cell[0]
             let newY = cell[1]

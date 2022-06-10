@@ -1,9 +1,11 @@
-class Mard extends LivingCreater{
+class Mard {
     constructor(x, y) {
-        document.onkeydown = super.checkKey;  //dif
+        this.x = x;
+        this.y = y;
+        document.onkeydown = this.checkKey;
     }
 
-    move(x, y) {            // have and diff
+    move(x, y) {
         console.log(matrix[0].length, x);
         if ((x >= 0 && x <= matrix[0].length) && (y >= 0 && y <= matrix.length)) {
             console.log(this.x, this.y);

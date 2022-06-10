@@ -1,7 +1,9 @@
-class Predator extends LivingCreater{
+class Predator {
     constructor(x, y) {
-        super.energy = 25               //dif
-        super.directions = []           //dif
+        this.x = x
+        this.y = y
+        this.energy = 25
+        this.directions = []
     }
 
     getNewCoordinates() {
@@ -34,7 +36,7 @@ class Predator extends LivingCreater{
     eat() {
         this.mul()
         let grassEaterCells = this.chooseCell(1, 2)
-        let grassEaterCell = this.rand(grassEaterCells)
+        let grassEaterCell = rand(grassEaterCells)
         if (grassEaterCell && this.energy > 0) {
             let newX = grassEaterCell[0]
             let newY = grassEaterCell[1]
@@ -58,7 +60,7 @@ class Predator extends LivingCreater{
 
     move() {
         let emptyCells = this.chooseCell(0, 1)
-        let emptyCell = this.rand(emptyCells)
+        let emptyCell = rand(emptyCells)
         if (emptyCell && this.energy > 0) {
             this.energy--
             let newX = emptyCell[0]
@@ -77,7 +79,7 @@ class Predator extends LivingCreater{
     mul() {
         if (this.energy >= 20) {
             let emptyCells = this.chooseCell(0)
-            let emptyCell = this.rand(emptyCells)
+            let emptyCell = rand(emptyCells)
             if (this.energy >= 12 && emptyCell) {
                 let newX = emptyCell[0]
                 let newY = emptyCell[1]
@@ -101,3 +103,4 @@ class Predator extends LivingCreater{
         }
     }
 }
+

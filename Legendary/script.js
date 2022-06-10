@@ -60,7 +60,9 @@ function matrixGen(n, gr, grEat, predator, posion) {
 }
 var n
 matrixGen(20, 10, 30, 3, 2)
-
+function rand(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+}
 
 let side = 25
 function setup() {

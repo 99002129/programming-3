@@ -1,4 +1,5 @@
 let LivingCreature = require("./LivingCreature")
+let rand = require("./rand")
 
 
 module.exports = class PosionedGrass extends LivingCreature {

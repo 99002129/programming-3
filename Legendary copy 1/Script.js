@@ -1,30 +1,23 @@
 
 var socket = io();
 
-function rand(arr) {
-    return arr[Math.floor(Math.random() * arr.length)]
-}
+
 
 let side = 25
-
+let n = 20
 function setup() {
      
-    createCanvas(matrix[0].length * side, matrix.length * side)
-    frameRate(60)
+    createCanvas(20 * side, 20 * side)
+    // frameRate(60)
     
     background("#2e4057")
-    
-    setInterval(() => {
-        let x = Math.floor(Math.random() * n)
-        let y = Math.floor(Math.random() * n)
-        new Vochxar(x, y)   
-    }, 300);
+  
 }
 
 socket.on("send matrix", paint)
 
 
-function paint() {
+function paint(matrix) {
     for (var x = 0; x < matrix.length; x++) {
         for (var y = 0; y < matrix[x].length; y++) {
             if (matrix[x][y] == 0) {
@@ -59,5 +52,6 @@ setInterval(() => {
     socket.on("send matrix", paint)
 }, 100);
 
+let reload = document.getElementById("reload")
 
 

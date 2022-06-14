@@ -1,5 +1,5 @@
 let LivingCreature = require("./LivingCreature")
-
+let rand = require("./rand")
 
 module.exports = class Grass extends LivingCreature { //constructor and chooscell
     mul() {

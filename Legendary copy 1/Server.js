@@ -3,7 +3,6 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var fs = require("fs");
-let matrix = []
 app.use(express.static("."));
 
 app.get('/', function (req, res) {
@@ -11,9 +10,10 @@ app.get('/', function (req, res) {
 });
 server.listen(3000);
 
+matrix = []
+
 
 function matrixGen(n, gr, grEat, predator, posion) {
-
     for (let x = 0; x < n; x++) {
         matrix[x] = []
         for (let y = 0; y < n; y++) {
@@ -64,21 +64,21 @@ function matrixGen(n, gr, grEat, predator, posion) {
         }
     }
 
-    return n
+    // return matrix
 }
 
 
-var n
-matrix = matrixGen(20, 10, 30, 3, 2)
+
+ matrixGen(20, 10, 30, 3, 2)
 console.log(matrix, "abgd");
 io.sockets.emit("send matrix", matrix)
 
 
-let grassArr = []
-let grassEaterArr = []
-let predatorArr = []
-let PosionedGrassArr = []
-let vochxarArr = []
+ grassArr = []
+ grassEaterArr = []
+ predatorArr = []
+ PosionedGrassArr = []
+ vochxarArr = []
 
 
 let LivingCreature = require("./Classes/LivingCreature")
@@ -107,7 +107,7 @@ function CreateObjects(matrix) {
                 predatorArr.push(small)
             }
             else if (matrix[x][y] == 4) {
-                let toxic = new PosionedGrass(x, y)
+                let toxic = new PoisonedGrass(x, y)
                 PosionedGrassArr.push(toxic)
             }
             else if (matrix[x][y] == 5) {
@@ -152,7 +152,7 @@ function game() {
 
 setInterval(() => {
     game()
-}, 1000);
+}, 100);
 
 
 io.on("connection", function (socket){

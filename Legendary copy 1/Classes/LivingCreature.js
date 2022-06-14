@@ -1,17 +1,19 @@
+let rand = require("./rand")
+
 module.exports = class LivingCreature {
     constructor(x, y) {
         this.x = x
         this.y = y
         this.multiply = 0
         this.directions = [
-            [x - 1, y - 1],
-            [x - 1, y],
-            [x - 1, y + 1],
-            [x, y - 1],
-            [x, y + 1],
-            [x + 1, y - 1],
-            [x + 1, y],
-            [x + 1, y + 1]
+            [this.x - 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y - 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y - 1],
+            [this.x + 1, this.y],
+            [this.x + 1, this.y + 1]
         ]
     }
 

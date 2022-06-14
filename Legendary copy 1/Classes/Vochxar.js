@@ -1,5 +1,6 @@
 let LivingCreature = require("./LivingCreature")
 
+let rand = require("./rand")
 
 module.exports = class Vochxar extends LivingCreature {
     constructor(x, y) {

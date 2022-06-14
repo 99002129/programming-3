@@ -1,4 +1,5 @@
 let LivingCreature = require("./LivingCreature")
+let rand = require("./rand")
 
 module.exports = class GrassEater extends LivingCreature {      //const and choosecell and getnewcoordinates
     constructor(x, y) {

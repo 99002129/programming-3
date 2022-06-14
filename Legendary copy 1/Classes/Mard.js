@@ -5,7 +5,7 @@ module.exports = class Mard {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        document.onkeydown = this.checkKey;
+        // document.onkeydown = this.checkKey;
     }
 
     move(x, y) {
@@ -25,22 +25,22 @@ module.exports = class Mard {
         }
     }
     
-    checkKey = (e) => {
-        console.log(e);
-        e = e || window.event;
-        if (e.keyCode == '38') {
-            this.move(this.x, this.y - 1)
-        }
-        else if (e.keyCode == '40') {
-            this.move(this.x, this.y + 1)
-        }
-        else if (e.keyCode == '37') {
-            this.move(this.x - 1, this.y)
-        }
-        else if (e.keyCode == '39') {
-            this.move(this.x + 1, this.y)
-        }
-    }
+    // checkKey = (e) => {
+    //     console.log(e);
+    //     e = e || window.event;
+    //     if (e.keyCode == '38') {
+    //         this.move(this.x, this.y - 1)
+    //     }
+    //     else if (e.keyCode == '40') {
+    //         this.move(this.x, this.y + 1)
+    //     }
+    //     else if (e.keyCode == '37') {
+    //         this.move(this.x - 1, this.y)
+    //     }
+    //     else if (e.keyCode == '39') {
+    //         this.move(this.x + 1, this.y)
+    //     }
+    // }
 
     killAll(character, x, y) {
         if (character == 0) {

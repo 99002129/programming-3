@@ -8,19 +8,16 @@ function rand(arr) {
 let side = 25
 
 function setup() {
-
+     
     createCanvas(matrix[0].length * side, matrix.length * side)
     frameRate(60)
-
+    
     background("#2e4057")
     
-
-
-
     setInterval(() => {
         let x = Math.floor(Math.random() * n)
         let y = Math.floor(Math.random() * n)
-        new Vochxar(x, y)
+        new Vochxar(x, y)   
     }, 300);
 }
 
@@ -33,7 +30,7 @@ function paint() {
             if (matrix[x][y] == 0) {
                 fill("#acacac")
             }
-            else if (matrix[x][y] == 1) {
+            else if (matrix[x][y] == 1) { 
                 fill("green")
             }
             else if (matrix[x][y] == 2) {

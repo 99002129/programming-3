@@ -70,6 +70,7 @@ function matrixGen(n, gr, grEat, predator, posion) {
 
 var n
 matrix = matrixGen(20, 10, 30, 3, 2)
+console.log(matrix, "abgd");
 io.sockets.emit("send matrix", matrix)
 
 
@@ -115,6 +116,7 @@ function CreateObjects(matrix) {
             }
         }
     }
+    
     
     io.sockets.emit("send matrix", matrix)
 

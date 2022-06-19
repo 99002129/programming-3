@@ -70,7 +70,7 @@ function matrixGen(n, gr, grEat, predator, posion) {
 
 
  matrixGen(20, 10, 30, 3, 2)
-console.log(matrix, "abgd");
+
 io.sockets.emit("send matrix", matrix)
 
 
@@ -150,12 +150,23 @@ function game() {
     io.sockets.emit("send matrix", matrix)
 }
 
-setInterval(() => {
-    game()
-}, 100);
+setInterval(game,100)
 
+function reload() {
+    matrixGen(20, 10, 30, 3, 2)
+
+    io.sockets.emit("send matrix", matrix)
+
+    grassArr = []
+    grassEaterArr = []
+    predatorArr = []
+    PosionedGrassArr = []
+    vochxarArr = []
+    CreateObjects(matrix)
+}
 
 io.on("connection", function (socket){
     CreateObjects(matrix)
+    socket.on("reload",reload)
 })
 

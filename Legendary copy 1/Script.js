@@ -8,7 +8,7 @@ let n = 20
 function setup() {
      
     createCanvas(20 * side, 20 * side)
-    // frameRate(60)
+    // frameRate(60) 
     
     background("#2e4057")
   
@@ -52,6 +52,13 @@ setInterval(() => {
     socket.on("send matrix", paint)
 }, 100);
 
-let reload = document.getElementById("reload")
+function reload() {
+    
+}
+
+function reload() {
+    socket.emit("reload")
+}
+
 
 

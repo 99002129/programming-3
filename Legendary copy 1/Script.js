@@ -8,7 +8,7 @@ let n = 20
 function setup() {
      
     createCanvas(20 * side, 20 * side)
-    // frameRate(60) 
+    // frameRate(20) 
     
     background("#2e4057")
   

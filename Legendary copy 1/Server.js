@@ -120,6 +120,20 @@ function CreateObjects(matrix) {
     
     io.sockets.emit("send matrix", matrix)
 
+    let statistika = {
+        grass: grassArr.length,
+        grassEater:grassEaterArr.length,
+        predator:predatorArr.length,
+        poisonedGrass:PosionedGrassArr.length,
+        vochxar:vochxarArr.length
+    }
+
+    let stats = JSON.stringify(statistika,null,2)
+    fs.writeFileSync("statistics.json",stats)
+    
+    console.log(stats);
+    console.log(statistika);
+
 }
 
 
@@ -169,4 +183,6 @@ io.on("connection", function (socket){
     CreateObjects(matrix)
     socket.on("reload",reload)
 })
+
+
 
